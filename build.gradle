@@ -30,6 +30,7 @@ repositories {
 }
 
 dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
 
     // Dagger2 dependencies
     compile 'org.glassfish:javax.annotation:10.0-b28'
