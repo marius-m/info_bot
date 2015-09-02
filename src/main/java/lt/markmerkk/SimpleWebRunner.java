@@ -1,5 +1,8 @@
 package lt.markmerkk;
 
+import lt.markmerkk.interfaces.PageInspector;
+import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.interfaces.WebRunner;
 import org.openqa.selenium.WebDriver;
 
 import javax.inject.Inject;
@@ -17,7 +20,8 @@ public class SimpleWebRunner implements WebRunner {
     }
 
     @Override
-    public void run() {
+    public void run(WPage page, PageInspector inspector) {
+        driver.get(page.pageUrl());
         driver.quit();
     }
 

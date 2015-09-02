@@ -1,5 +1,7 @@
 package lt.markmerkk;
 
+import lt.markmerkk.interfaces.PageInspector;
+import lt.markmerkk.interfaces.WPage;
 import org.openqa.selenium.WebDriver;
 
 /**

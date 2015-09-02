@@ -1,4 +1,4 @@
-package lt.markmerkk;
+package lt.markmerkk.interfaces;
 
 /**
  * Created by mariusmerkevicius on 9/2/15.
@@ -6,8 +6,10 @@ package lt.markmerkk;
  */
 public interface WebRunner {
     /**
-     * Runner method
+     * Runner method with provided inspector
+     * @param page
+     * @param inspector
      */
-    void run();
+    void run(WPage page, PageInspector inspector);
 
 }

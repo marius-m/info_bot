@@ -1,4 +1,4 @@
-package lt.markmerkk;
+package lt.markmerkk.interfaces;
 
 /**
  * Created by mariusmerkevicius on 9/2/15.
