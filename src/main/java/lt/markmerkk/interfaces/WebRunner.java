@@ -7,9 +7,7 @@ package lt.markmerkk.interfaces;
 public interface WebRunner {
     /**
      * Runner method with provided inspector
-     * @param page
-     * @param inspector
      */
-    void run(WPage page, PageInspector inspector);
+    void run();
 
 }
