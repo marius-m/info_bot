@@ -1,5 +1,6 @@
 package lt.markmerkk;
 
+import com.google.inject.Singleton;
 import lt.markmerkk.interfaces.WPage;
 
 /**

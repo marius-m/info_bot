@@ -1,6 +1,5 @@
 package lt.markmerkk.modules;
 
-import com.google.inject.Singleton;
 import dagger.Component;
 import dagger.Module;
 import dagger.Provides;
@@ -12,6 +11,8 @@ import lt.markmerkk.interfaces.WPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import javax.inject.Singleton;
+
 /**
  * Created by mariusmerkevicius on 9/2/15.
  */
@@ -19,18 +20,20 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class SimpleWebRunnerModule {
 
     @Provides
+    @Singleton
     WebDriver providesWebDriver() {
         return new FirefoxDriver();
     }
 
     @Provides
+    @Singleton
     WPage providesPage() {
         return new PageAruodas();
     }
 
     @Provides
-    PageFilter providesPageFilter() {
-        return new FilterAruodas();
+    PageFilter providesPageFilter(WebDriver driver, WPage page) {
+        return new FilterAruodas(driver, page);
     }
 
 }

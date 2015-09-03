@@ -26,7 +26,7 @@ public class SimpleWebRunner implements WebRunner {
     @Override
     public void run() {
         driver.get(page.pageUrl());
-        filter.fillIn(driver);
+        filter.fillIn();
         driver.quit();
     }
 

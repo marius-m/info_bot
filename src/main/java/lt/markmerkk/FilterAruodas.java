@@ -1,6 +1,7 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.PageFilter;
+import lt.markmerkk.interfaces.WPage;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -8,10 +9,16 @@ import org.openqa.selenium.WebDriver;
  */
 public class FilterAruodas implements PageFilter {
 
-    public FilterAruodas() { }
+    WebDriver driver;
+    WPage page;
+
+    public FilterAruodas(WebDriver driver, WPage page) {
+        this.driver = driver;
+        this.page = page;
+    }
 
     @Override
-    public void fillIn(WebDriver driver) {
+    public void fillIn() {
 
     }
 }
