@@ -1,6 +1,7 @@
 package lt.markmerkk.web_components;
 
 import lt.markmerkk.web_components.interfaces.WebComponentBase;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,29 +10,17 @@ import org.slf4j.LoggerFactory;
  * Created by mariusmerkevicius on 9/4/15.
  * A concrete text web element input component implementation
  */
-public class WCText implements WebComponentBase {
+public class WCText extends WCBaseInput {
 
     private final Logger logger;
-    String path;
-    String value;
 
     public WCText(String path, String value) {
-        if (path == null)
-            throw new IllegalArgumentException("Xpath must be defined!");
-        this.path = path;
-        if (value == null)
-            throw new IllegalArgumentException("Value must be defined!");
+        super(path, value);
         logger = LoggerFactory.getLogger(WCText.class);
-        this.value = value;
     }
 
     @Override
-    public String xpath() {
-        return path;
-    }
-
-    @Override
-    public void fillIn(WebElement element) {
+    public void fillIn(WebElement element) throws WebDriverException {
         if (element == null)
             return;
         logger.debug("Filling in "+getClass().getSimpleName()+" component with \""+value+"\"");

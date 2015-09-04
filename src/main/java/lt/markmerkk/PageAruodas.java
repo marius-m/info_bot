@@ -23,6 +23,7 @@ public class PageAruodas implements WPage {
             //put("size_from", new WCText("//input[@name='FAreaOverAllMin']", "100"));
             put("room_number_from", new WCCheckBox("//select[@name='FRoomNumMin']", "2"));
             put("room_number_to", new WCCheckBox("//select[@name='FRoomNumMax']", "3"));
+            put("error_component", new WCText("//select[@name='FRoomNumMax']", "100"));
         }};
     }
 }

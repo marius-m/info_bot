@@ -3,11 +3,7 @@ package lt.markmerkk;
 import lt.markmerkk.interfaces.PageFilter;
 import lt.markmerkk.interfaces.WPage;
 import lt.markmerkk.web_components.interfaces.WebComponentBase;
-import lt.markmerkk.web_components.interfaces.WebComponentText;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,7 +53,11 @@ public class SimpleFilter implements PageFilter {
             return;
         if (componentDetail == null)
             return;
-        componentDetail.fillIn(element);
+        try {
+            componentDetail.fillIn(element);
+        } catch (WebDriverException e) {
+            logger.error("Error filling data. (" + e.getMessage() + ")" );
+        }
     }
 
     /**

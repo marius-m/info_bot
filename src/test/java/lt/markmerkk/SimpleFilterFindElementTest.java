@@ -1,16 +1,10 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.WPage;
-import lt.markmerkk.web_components.WCText;
 import lt.markmerkk.web_components.interfaces.WebComponentBase;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.HashMap;
+import org.openqa.selenium.*;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.*;
@@ -49,7 +43,7 @@ public class SimpleFilterFindElementTest {
             }
 
             @Override
-            public void fillIn(WebElement element) {
+            public void fillIn(WebElement element) throws WebDriverException {
 
             }
         }));
@@ -64,7 +58,7 @@ public class SimpleFilterFindElementTest {
             }
 
             @Override
-            public void fillIn(WebElement element) {
+            public void fillIn(WebElement element) throws WebDriverException {
 
             }
         }));
@@ -81,7 +75,7 @@ public class SimpleFilterFindElementTest {
             }
 
             @Override
-            public void fillIn(WebElement element) {
+            public void fillIn(WebElement element) throws WebDriverException {
 
             }
         }));;
@@ -97,7 +91,7 @@ public class SimpleFilterFindElementTest {
             }
 
             @Override
-            public void fillIn(WebElement element) {
+            public void fillIn(WebElement element) throws WebDriverException {
 
             }
         }));;

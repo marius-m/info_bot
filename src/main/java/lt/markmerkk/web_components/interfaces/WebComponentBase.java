@@ -1,6 +1,7 @@
 package lt.markmerkk.web_components.interfaces;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
 /**
@@ -18,5 +19,5 @@ public interface WebComponentBase {
      * Takes in provided web element and executes query to the element
      * @param element provided web element
      */
-    void fillIn(WebElement element);
+    void fillIn(WebElement element) throws WebDriverException;
 }
