@@ -7,21 +7,21 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Created by mariusmerkevicius on 9/4/15.
- * A concrete text web element input component implementation
+ * A concrete checkbox web element input component implementation
  */
-public class WCText implements WebComponentBase {
+public class WCCheckBox implements WebComponentBase {
 
     private final Logger logger;
     String path;
     String value;
 
-    public WCText(String path, String value) {
+    public WCCheckBox(String path, String value) {
         if (path == null)
             throw new IllegalArgumentException("Xpath must be defined!");
         this.path = path;
         if (value == null)
             throw new IllegalArgumentException("Value must be defined!");
-        logger = LoggerFactory.getLogger(WCText.class);
+        logger = LoggerFactory.getLogger(WCCheckBox.class);
         this.value = value;
     }
 
@@ -34,8 +34,7 @@ public class WCText implements WebComponentBase {
     public void fillIn(WebElement element) {
         if (element == null)
             return;
-        logger.debug("Filling in "+getClass().getSimpleName()+" component with \""+value+"\"");
-        element.clear();
+        logger.debug("Selecting in "+getClass().getSimpleName()+" component with \""+value+"\"");
         element.sendKeys(value);
     }
 

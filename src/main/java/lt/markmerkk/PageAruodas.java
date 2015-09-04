@@ -1,6 +1,7 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.web_components.WCCheckBox;
 import lt.markmerkk.web_components.WCText;
 import lt.markmerkk.web_components.interfaces.WebComponentBase;
 
@@ -19,7 +20,9 @@ public class PageAruodas implements WPage {
     @Override
     public HashMap<String, WebComponentBase> filterComponents() {
         return new HashMap<String, WebComponentBase>() {{
-            put("size_from", new WCText("//input[@name='FAreaOverAllMin']", "100"));
+            //put("size_from", new WCText("//input[@name='FAreaOverAllMin']", "100"));
+            put("room_number_from", new WCCheckBox("//select[@name='FRoomNumMin']", "2"));
+            put("room_number_to", new WCCheckBox("//select[@name='FRoomNumMax']", "3"));
         }};
     }
 }
