@@ -34,7 +34,7 @@ public class SimpleFilter implements PageFilter {
 
     @Override
     public void fillIn() {
-        logger.info("Executing query");
+        logger.info("Executing filter");
         logger.debug("Looking for available components...");
         HashMap<String, WebComponentBase> components = page.filterComponents();
         if (components == null)
