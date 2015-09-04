@@ -27,6 +27,11 @@ public class SimpleWebRunner implements WebRunner {
     public void run() {
         driver.get(page.url());
         filter.fillIn();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         driver.quit();
     }
 

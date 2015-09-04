@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
 
@@ -27,7 +28,7 @@ public class SimpleFilterFilterTest {
     public void setUp() throws Exception {
         webDriver = mock(WebDriver.class);
         page = mock(WPage.class);
-        filter = new SimpleFilter(webDriver, page);
+        filter = spy(new SimpleFilter(webDriver, page));
     }
 
     @Test
@@ -43,17 +44,8 @@ public class SimpleFilterFilterTest {
         when(page.filterComponents()).thenReturn(new HashMap<String, WebComponentBase>());
         filter.fillIn();
         // When components are empty, it should not call any methods on the driver
-        verify(webDriver, never()).findElement(any(By.class));
-        verify(webDriver, never()).findElements(any(By.class));
+        verify(filter, never()).findComponent(any(WebComponentBase.class));
+        verify(filter, never()).fillComponent(any(WebElement.class), any(WebComponentBase.class));
     }
 
-    @Test
-    public void testOneElement() throws Exception {
-        HashMap<String, WebComponentBase> filterComponents = new HashMap<String, WebComponentBase>();
-        filterComponents.put("size_component", new WCText("//some_path", "fill_in_data"));
-        when(page.filterComponents()).thenReturn(filterComponents);
-        filter.fillIn();
-        // When components are empty, it should not call any methods on the driver
-        verify(webDriver, times(1)).findElement(any(By.class));
-    }
 }

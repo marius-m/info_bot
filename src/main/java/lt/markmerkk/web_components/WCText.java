@@ -6,7 +6,7 @@ import lt.markmerkk.web_components.interfaces.WebComponentText;
 /**
  * Created by mariusmerkevicius on 9/4/15.
  */
-public final class WCText implements WebComponentBase, WebComponentText {
+public class WCText implements WebComponentBase, WebComponentText {
 
     String path;
     String text;
