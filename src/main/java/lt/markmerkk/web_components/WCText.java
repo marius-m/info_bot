@@ -1,6 +1,5 @@
 package lt.markmerkk.web_components;
 
-import lt.markmerkk.web_components.interfaces.WebComponentBase;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -16,13 +15,17 @@ public class WCText extends WCBaseInput {
 
     public WCText(String path, String value) {
         super(path, value);
+        if (value == null)
+            throw new IllegalArgumentException("This component type cannot function properly without a value!");
         logger = LoggerFactory.getLogger(WCText.class);
     }
 
     @Override
-    public void fillIn(WebElement element) throws WebDriverException {
+    public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
         if (element == null)
             return;
+        if (value == null)
+            throw new IllegalArgumentException("No data provided that should be filled in!");
         logger.debug("Filling in "+getClass().getSimpleName()+" component with \""+value+"\"");
         element.clear();
         element.sendKeys(value);

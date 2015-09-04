@@ -43,7 +43,7 @@ public class SimpleFilterFindElementTest {
             }
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException {
+            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         }));
@@ -58,7 +58,7 @@ public class SimpleFilterFindElementTest {
             }
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException {
+            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         }));
@@ -75,7 +75,7 @@ public class SimpleFilterFindElementTest {
             }
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException {
+            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         }));;
@@ -91,7 +91,7 @@ public class SimpleFilterFindElementTest {
             }
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException {
+            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         }));;

@@ -57,6 +57,8 @@ public class SimpleFilter implements PageFilter {
             componentDetail.fillIn(element);
         } catch (WebDriverException e) {
             logger.error("Error filling data. (" + e.getMessage() + ")" );
+        } catch (IllegalArgumentException e) {
+            logger.error("Error filling data. (" + e.getMessage() + ")" );
         }
     }
 

@@ -21,18 +21,18 @@ public class WCBaseInputInitTest {
         new WCBaseInput(null, "asdf") {
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException {
+            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         };
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test // Value parameter can be skipped, though when executing it might throw illegal argument if its needed
     public void testNullValue() throws Exception {
         new WCBaseInput("//someXpath", null) {
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException {
+            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         };
@@ -43,7 +43,7 @@ public class WCBaseInputInitTest {
         assertNotNull(new WCBaseInput("//someXpath", "asdf") {
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException {
+            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         });

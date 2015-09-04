@@ -15,8 +15,6 @@ public abstract class WCBaseInput implements WebComponentBase {
         if (path == null)
             throw new IllegalArgumentException("Xpath must be defined!");
         this.path = path;
-        if (value == null)
-            throw new IllegalArgumentException("Value must be defined!");
         this.value = value;
     }
 
