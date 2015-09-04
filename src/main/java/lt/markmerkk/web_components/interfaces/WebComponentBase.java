@@ -10,6 +10,12 @@ import org.openqa.selenium.WebElement;
  */
 public interface WebComponentBase {
     /**
+     * Represents component name
+     * @return
+     */
+    String name();
+
+    /**
      * Path that is used to find the component
      * @return provides the used xpath
      */

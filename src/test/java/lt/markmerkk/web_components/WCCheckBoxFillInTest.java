@@ -13,13 +13,13 @@ import static org.mockito.Mockito.verify;
 public class WCCheckBoxFillInTest {
     @Test
     public void testNullElement() throws Exception {
-        WCCheckBox textComponent = new WCCheckBox("//somePath", "value_to_fill");
+        WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath", "value_to_fill");
         textComponent.fillIn(null); // Should not do anything!
     }
 
     @Test
     public void testValid() throws Exception {
-        WCCheckBox textComponent = new WCCheckBox("//somePath", "value_to_fill");
+        WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath", "value_to_fill");
         WebElement webElement = mock(WebElement.class);
         textComponent.fillIn(webElement);
         verify(webElement, times(1)).sendKeys("value_to_fill");
@@ -27,7 +27,7 @@ public class WCCheckBoxFillInTest {
 
     @Test
     public void testNullValue() throws Exception {
-        WCCheckBox textComponent = new WCCheckBox("//somePath", "value_to_fill");
+        WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath", "value_to_fill");
         WebElement webElement = mock(WebElement.class);
         textComponent.fillIn(webElement);
         verify(webElement, times(1)).sendKeys("value_to_fill");

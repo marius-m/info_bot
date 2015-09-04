@@ -3,6 +3,7 @@ package lt.markmerkk.interfaces;
 import lt.markmerkk.web_components.interfaces.WebComponentBase;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by mariusmerkevicius on 9/2/15.
@@ -19,5 +20,5 @@ public interface WPage {
      * Returns filter components that should be filled before loading
      * list
      */
-    HashMap<String, WebComponentBase> filterComponents();
+    List<WebComponentBase> filterComponents();
 }

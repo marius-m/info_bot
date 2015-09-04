@@ -1,11 +1,14 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.web_components.WCButton;
 import lt.markmerkk.web_components.WCCheckBox;
 import lt.markmerkk.web_components.WCText;
 import lt.markmerkk.web_components.interfaces.WebComponentBase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by mariusmerkevicius on 9/2/15.
@@ -18,14 +21,14 @@ public class PageAruodas implements WPage {
     }
 
     @Override
-    public HashMap<String, WebComponentBase> filterComponents() {
-        return new HashMap<String, WebComponentBase>() {{
-            //put("size_from", new WCText("//input[@name='FAreaOverAllMin']", "100"));
-            put("room_number_from", new WCCheckBox("//select[@name='FRoomNumMin']", "2"));
-            put("room_number_to", new WCCheckBox("//select[@name='FRoomNumMax']", "3"));
-            put("max_price", new WCText("//input[@name='FPriceMax']", "100000"));
-            put("region", new WCCheckBox("//select[@name='FRegion']", "Vilnius"));
-            put("district", new WCCheckBox("//select[@name='FDistrict']", "Vilniaus m."));
+    public List<WebComponentBase> filterComponents() {
+        return new ArrayList<WebComponentBase>() {{
+            add(new WCCheckBox("room_number_from", "//select[@name='FRoomNumMin']", "2"));
+            add(new WCCheckBox("room_number_to", "//select[@name='FRoomNumMax']", "3"));
+            add(new WCText("max_price", "//input[@name='FPriceMax']", "100000"));
+            add(new WCCheckBox("region", "//select[@name='FRegion']", "Vilnius"));
+            add(new WCCheckBox("district", "//select[@name='FDistrict']", "Vilniaus m."));
+            add(new WCButton("filter_button", "//input[@type='submit']"));
         }};
     }
 }

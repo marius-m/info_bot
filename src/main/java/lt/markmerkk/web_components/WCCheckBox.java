@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
  */
 public class WCCheckBox extends WCBaseInput {
     private final Logger logger;
-    public WCCheckBox(String path, String value) {
-        super(path, value);
+    public WCCheckBox(String name, String path, String value) {
+        super(name, path, value);
         if (value == null)
             throw new IllegalArgumentException("This component type cannot function properly without a value!");
         logger = LoggerFactory.getLogger(WCCheckBox.class);
@@ -22,7 +22,7 @@ public class WCCheckBox extends WCBaseInput {
     public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
         if (element == null)
             return;
-        logger.debug("Selecting component with \"" + value + "\"");
+        logger.debug("Selecting " + name + " component with \"" + value + "\"");
         element.sendKeys(value);
     }
 

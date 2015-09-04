@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.junit.Assert.*;
@@ -41,7 +42,7 @@ public class SimpleFilterFilterTest {
 
     @Test
     public void testEmptyFilterElements() throws Exception {
-        when(page.filterComponents()).thenReturn(new HashMap<String, WebComponentBase>());
+        when(page.filterComponents()).thenReturn(new ArrayList<WebComponentBase>());
         filter.fillIn();
         // When components are empty, it should not call any methods on the driver
         verify(filter, never()).findComponent(any(WebComponentBase.class));

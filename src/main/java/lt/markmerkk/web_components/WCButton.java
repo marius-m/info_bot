@@ -14,8 +14,8 @@ public class WCButton extends WCBaseInput {
     private final Logger logger;
 
     // Button does not need a value input
-    public WCButton(String path) {
-        super(path, null);
+    public WCButton(String name, String path) {
+        super(name, path, null);
         logger = LoggerFactory.getLogger(WCButton.class);
     }
 
@@ -23,7 +23,7 @@ public class WCButton extends WCBaseInput {
     public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
         if (element == null)
             return;
-        logger.debug("Pressing component");
+        logger.debug("Pressing " + name + " component");
         element.click();
     }
 

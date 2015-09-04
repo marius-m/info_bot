@@ -13,8 +13,8 @@ public class WCText extends WCBaseInput {
 
     private final Logger logger;
 
-    public WCText(String path, String value) {
-        super(path, value);
+    public WCText(String name, String path, String value) {
+        super(name, path, value);
         if (value == null)
             throw new IllegalArgumentException("This component type cannot function properly without a value!");
         logger = LoggerFactory.getLogger(WCText.class);
@@ -24,7 +24,7 @@ public class WCText extends WCBaseInput {
     public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
         if (element == null)
             return;
-        logger.debug("Filling in component with \""+value+"\"");
+        logger.debug("Filling " + name + "component with \"" + value + "\"");
         element.clear();
         element.sendKeys(value);
     }

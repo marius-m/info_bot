@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by mariusmerkevicius on 9/4/15.
@@ -32,13 +33,12 @@ public class SimpleFilter implements PageFilter {
     public void fillIn() {
         logger.info("Executing filter");
         logger.debug("Looking for available components...");
-        HashMap<String, WebComponentBase> components = page.filterComponents();
+        List<WebComponentBase> components = page.filterComponents();
         if (components == null)
             return;
-        for (String componentName : components.keySet()) {
-            logger.debug("Looking for component " + componentName);
-            WebComponentBase componentDetail = components.get(componentName);
-            fillComponent(findComponent(componentDetail), componentDetail);
+        for (WebComponentBase component : components) {
+            logger.debug("Looking for component " + component.name());
+            fillComponent(findComponent(component), component);
         }
     }
 

@@ -38,6 +38,11 @@ public class SimpleFilterFindElementTest {
     public void testNullPath() throws Exception {
         assertNull(filter.findComponent(new WebComponentBase() {
             @Override
+            public String name() {
+                return null;
+            }
+
+            @Override
             public String xpath() {
                 return null;
             }
@@ -52,6 +57,11 @@ public class SimpleFilterFindElementTest {
     @Test
     public void testNullEmptyPath() throws Exception {
         assertNull(filter.findComponent(new WebComponentBase() {
+            @Override
+            public String name() {
+                return null;
+            }
+
             @Override
             public String xpath() {
                 return "";
@@ -70,6 +80,11 @@ public class SimpleFilterFindElementTest {
         when(filter.driver.findElement(any(By.class))).thenReturn(webElement);
         assertNotNull(filter.findComponent(new WebComponentBase() {
             @Override
+            public String name() {
+                return null;
+            }
+
+            @Override
             public String xpath() {
                 return "//somePath";
             }
@@ -85,6 +100,11 @@ public class SimpleFilterFindElementTest {
     public void testThrowsNoSuchElement() throws Exception {
         when(filter.driver.findElement(any(By.class))).thenThrow(new NoSuchElementException("No such element"));
         assertNull(filter.findComponent(new WebComponentBase() {
+            @Override
+            public String name() {
+                return null;
+            }
+
             @Override
             public String xpath() {
                 return "//somePath";

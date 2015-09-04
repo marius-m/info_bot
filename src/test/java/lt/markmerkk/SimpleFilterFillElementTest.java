@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -45,7 +44,7 @@ public class SimpleFilterFillElementTest {
     @Test
     public void testValidTextElement() throws Exception {
         WebElement webElement = mock(WebElement.class);
-        WebComponentBase textComponent = new WCText("//asdf", "asdf");
+        WebComponentBase textComponent = new WCText("asdf", "//asdf", "asdf");
         filter.fillComponent(webElement, textComponent);
         verify(webElement, times(1)).clear();
         verify(webElement, times(1)).sendKeys(any(String.class));

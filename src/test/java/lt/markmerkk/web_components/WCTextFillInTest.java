@@ -14,13 +14,13 @@ public class WCTextFillInTest {
 
     @Test
     public void testNullElement() throws Exception {
-        WCText textComponent = new WCText("//somePath", "value_to_fill");
+        WCText textComponent = new WCText("asdf", "//somePath", "value_to_fill");
         textComponent.fillIn(null); // Should not do anything!
     }
 
     @Test
     public void testValid() throws Exception {
-        WCText textComponent = new WCText("//somePath", "value_to_fill");
+        WCText textComponent = new WCText("asdf", "//somePath", "value_to_fill");
         WebElement webElement = mock(WebElement.class);
         textComponent.fillIn(webElement);
         verify(webElement, times(1)).clear();
