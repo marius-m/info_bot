@@ -41,10 +41,11 @@ public class SimpleFilterFillElementTest {
         filter.fillComponent(mock(WebElement.class), null);
     }
 
+    // This test should not be here, but it does not get in the way
     @Test
     public void testValidTextElement() throws Exception {
         WebElement webElement = mock(WebElement.class);
-        WebComponentBase textComponent = mock(WCText.class);
+        WebComponentBase textComponent = new WCText("//asdf", "asdf");
         filter.fillComponent(webElement, textComponent);
         verify(webElement, times(1)).clear();
         verify(webElement, times(1)).sendKeys(any(String.class));

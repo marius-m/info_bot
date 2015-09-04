@@ -57,12 +57,7 @@ public class SimpleFilter implements PageFilter {
             return;
         if (componentDetail == null)
             return;
-        if (componentDetail instanceof WebComponentText) {
-            String text = ((WebComponentText) componentDetail).text();
-            logger.debug("Filling in with " + text);
-            element.clear();
-            element.sendKeys(text);
-        }
+        componentDetail.fillIn(element);
     }
 
     /**
@@ -76,11 +71,11 @@ public class SimpleFilter implements PageFilter {
         if (componentDetail == null)
             return null;
         try {
-            return driver.findElement(By.xpath(componentDetail.path()));
+            return driver.findElement(By.xpath(componentDetail.xpath()));
         } catch (NoSuchElementException e) {
-            logger.error("Error getting component! Path: " + componentDetail.path());
+            logger.error("Error getting component! Path: " + componentDetail.xpath());
         } catch (IllegalArgumentException e) {
-            logger.error("Error getting component! Path: " + componentDetail.path() + ". " + e.getMessage());
+            logger.error("Error getting component! Path: " + componentDetail.xpath() + ". " + e.getMessage());
         }
         return null;
     }

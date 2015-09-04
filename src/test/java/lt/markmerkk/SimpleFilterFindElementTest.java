@@ -44,8 +44,13 @@ public class SimpleFilterFindElementTest {
     public void testNullPath() throws Exception {
         assertNull(filter.findComponent(new WebComponentBase() {
             @Override
-            public String path() {
+            public String xpath() {
                 return null;
+            }
+
+            @Override
+            public void fillIn(WebElement element) {
+
             }
         }));
     }
@@ -54,8 +59,13 @@ public class SimpleFilterFindElementTest {
     public void testNullEmptyPath() throws Exception {
         assertNull(filter.findComponent(new WebComponentBase() {
             @Override
-            public String path() {
+            public String xpath() {
                 return "";
+            }
+
+            @Override
+            public void fillIn(WebElement element) {
+
             }
         }));
     }
@@ -66,8 +76,13 @@ public class SimpleFilterFindElementTest {
         when(filter.driver.findElement(any(By.class))).thenReturn(webElement);
         assertNotNull(filter.findComponent(new WebComponentBase() {
             @Override
-            public String path() {
+            public String xpath() {
                 return "//somePath";
+            }
+
+            @Override
+            public void fillIn(WebElement element) {
+
             }
         }));;
     }
@@ -77,8 +92,13 @@ public class SimpleFilterFindElementTest {
         when(filter.driver.findElement(any(By.class))).thenThrow(new NoSuchElementException("No such element"));
         assertNull(filter.findComponent(new WebComponentBase() {
             @Override
-            public String path() {
+            public String xpath() {
                 return "//somePath";
+            }
+
+            @Override
+            public void fillIn(WebElement element) {
+
             }
         }));;
     }
