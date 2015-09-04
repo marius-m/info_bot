@@ -1,11 +1,9 @@
 package lt.markmerkk.modules;
 
-import dagger.Component;
 import dagger.Module;
 import dagger.Provides;
-import lt.markmerkk.FilterAruodas;
+import lt.markmerkk.SimpleFilter;
 import lt.markmerkk.PageAruodas;
-import lt.markmerkk.SimpleWebRunner;
 import lt.markmerkk.interfaces.PageFilter;
 import lt.markmerkk.interfaces.WPage;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +31,7 @@ public class SimpleWebRunnerModule {
 
     @Provides
     PageFilter providesPageFilter(WebDriver driver, WPage page) {
-        return new FilterAruodas(driver, page);
+        return new SimpleFilter(driver, page);
     }
 
 }
