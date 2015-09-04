@@ -8,8 +8,8 @@ import lt.markmerkk.web_components.interfaces.WebComponentBase;
  * used for filling in user input.
  */
 public abstract class WCBaseInput implements WebComponentBase {
-    String path;
-    String value;
+    final String path;
+    final String value;
 
     public WCBaseInput(String path, String value) {
         if (path == null)

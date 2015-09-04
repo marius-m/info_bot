@@ -24,9 +24,7 @@ public class WCText extends WCBaseInput {
     public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
         if (element == null)
             return;
-        if (value == null)
-            throw new IllegalArgumentException("No data provided that should be filled in!");
-        logger.debug("Filling in "+getClass().getSimpleName()+" component with \""+value+"\"");
+        logger.debug("Filling in component with \""+value+"\"");
         element.clear();
         element.sendKeys(value);
     }

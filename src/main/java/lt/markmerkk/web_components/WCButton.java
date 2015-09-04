@@ -1,0 +1,30 @@
+package lt.markmerkk.web_components;
+
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * Created by mariusmerkevicius on 9/4/15.
+ * A concrete button web element input component implementation
+ */
+public class WCButton extends WCBaseInput {
+
+    private final Logger logger;
+
+    // Button does not need a value input
+    public WCButton(String path) {
+        super(path, null);
+        logger = LoggerFactory.getLogger(WCButton.class);
+    }
+
+    @Override
+    public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
+        if (element == null)
+            return;
+        logger.debug("Pressing component");
+        element.click();
+    }
+
+}

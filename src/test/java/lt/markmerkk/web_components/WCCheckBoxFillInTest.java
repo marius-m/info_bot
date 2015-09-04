@@ -25,4 +25,12 @@ public class WCCheckBoxFillInTest {
         verify(webElement, times(1)).sendKeys("value_to_fill");
     }
 
+    @Test
+    public void testNullValue() throws Exception {
+        WCCheckBox textComponent = new WCCheckBox("//somePath", "value_to_fill");
+        WebElement webElement = mock(WebElement.class);
+        textComponent.fillIn(webElement);
+        verify(webElement, times(1)).sendKeys("value_to_fill");
+    }
+
 }

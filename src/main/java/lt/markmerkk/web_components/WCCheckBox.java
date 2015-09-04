@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
  * A concrete checkbox web element input component implementation
  */
 public class WCCheckBox extends WCBaseInput {
-
     private final Logger logger;
     public WCCheckBox(String path, String value) {
         super(path, value);
@@ -23,7 +22,7 @@ public class WCCheckBox extends WCBaseInput {
     public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
         if (element == null)
             return;
-        logger.debug("Selecting in " + getClass().getSimpleName() + " component with \"" + value + "\"");
+        logger.debug("Selecting component with \"" + value + "\"");
         element.sendKeys(value);
     }
 
