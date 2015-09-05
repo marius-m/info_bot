@@ -20,15 +20,6 @@ public class WCBaseInputFillTest {
     @Before
     public void setUp() throws Exception {
         baseInput = spy(new WCBaseInput("asdf", "//path", "asdf") {
-            @Override
-            WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
-                return null;
-            }
-
-            @Override
-            void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
-
-            }
         });
     }
 
@@ -40,6 +31,5 @@ public class WCBaseInputFillTest {
     @Test
     public void testValid() throws Exception {
         baseInput.fill(mock(WebElement.class));
-        verify(baseInput, times(1)).fillElement(any(WebElement.class));
     }
 }

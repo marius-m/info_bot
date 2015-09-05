@@ -36,3 +36,4 @@ out/
 build/
 src/dagger/
 checkLog.log
+checkLog.log*

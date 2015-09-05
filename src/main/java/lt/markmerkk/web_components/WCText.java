@@ -24,14 +24,4 @@ public class WCText extends WCBaseInput {
         logger = LoggerFactory.getLogger(WCText.class);
     }
 
-    @Override
-    WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
-        return driver.findElement(By.xpath(path));
-    }
-
-    @Override
-    void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
-
-    }
-
 }

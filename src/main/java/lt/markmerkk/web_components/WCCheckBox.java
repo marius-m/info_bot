@@ -18,14 +18,4 @@ public class WCCheckBox extends WCBaseInput {
             throw new IllegalArgumentException("This component type cannot function properly without a value!");
     }
 
-    @Override
-    WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
-        return driver.findElement(By.xpath(path));
-    }
-
-    @Override
-    void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
-
-    }
-
 }

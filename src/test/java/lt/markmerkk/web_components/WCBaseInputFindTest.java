@@ -21,15 +21,6 @@ public class WCBaseInputFindTest {
     @Before
     public void setUp() throws Exception {
         baseInput = spy(new WCBaseInput("asdf", "//path", "asdf") {
-            @Override
-            WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
-                return null;
-            }
-
-            @Override
-            void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
-
-            }
         });
     }
 
@@ -38,15 +29,8 @@ public class WCBaseInputFindTest {
         baseInput.find(null);
     }
 
-    @Test(expected = WebDriverException.class)
-    public void testWebDriverError() throws Exception {
-        when(baseInput.findElement(any(WebDriver.class))).thenThrow(new WebDriverException());
-        baseInput.find(mock(WebDriver.class));
-    }
-
     @Test
     public void testValid() throws Exception {
         baseInput.find(mock(WebDriver.class));
-        verify(baseInput, times(1)).findElement(any(WebDriver.class));
     }
 }
