@@ -1,8 +1,11 @@
 package lt.markmerkk.web_components;
 
 import org.junit.Test;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
+
+import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
 
@@ -21,7 +24,12 @@ public class WCBaseInputInitTest {
         new WCBaseInput(null, "//asdf", "asdf") {
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
+            WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
+                return null;
+            }
+
+            @Override
+            void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         };
@@ -32,7 +40,12 @@ public class WCBaseInputInitTest {
         new WCBaseInput("asdf", null, "asdf") {
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
+            WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
+                return null;
+            }
+
+            @Override
+            void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         };
@@ -43,7 +56,12 @@ public class WCBaseInputInitTest {
         new WCBaseInput("asdf", "//someXpath", null) {
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
+            WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
+                return null;
+            }
+
+            @Override
+            void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         };
@@ -54,7 +72,12 @@ public class WCBaseInputInitTest {
         assertNotNull(new WCBaseInput("asdf", "//someXpath", "asdf") {
 
             @Override
-            public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
+            WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
+                return null;
+            }
+
+            @Override
+            void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
 
             }
         });

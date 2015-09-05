@@ -1,9 +1,13 @@
 package lt.markmerkk.web_components;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.NoSuchElementException;
 
 /**
  * Created by mariusmerkevicius on 9/4/15.
@@ -21,12 +25,13 @@ public class WCText extends WCBaseInput {
     }
 
     @Override
-    public void fillIn(WebElement element) throws WebDriverException, IllegalArgumentException {
-        if (element == null)
-            return;
-        logger.debug("Filling " + name + "component with \"" + value + "\"");
-        element.clear();
-        element.sendKeys(value);
+    WebElement findElement(WebDriver driver) throws NoSuchElementException, IllegalArgumentException {
+        return driver.findElement(By.xpath(path));
+    }
+
+    @Override
+    void fillElement(WebElement element) throws WebDriverException, IllegalArgumentException {
+
     }
 
 }

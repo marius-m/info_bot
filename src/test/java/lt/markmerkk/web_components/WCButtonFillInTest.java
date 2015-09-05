@@ -15,14 +15,14 @@ public class WCButtonFillInTest {
     @Test
     public void testNullElement() throws Exception {
         WCButton textComponent = new WCButton("asdf", "//somePath");
-        textComponent.fillIn(null); // Should not do anything!
+        textComponent.fill(null); // Should not do anything!
     }
 
     @Test
     public void testValid() throws Exception {
         WCButton textComponent = new WCButton("asdf", "//somePath");
         WebElement webElement = mock(WebElement.class);
-        textComponent.fillIn(webElement);
+        textComponent.fill(webElement);
         verify(webElement, times(1)).click();
     }
 

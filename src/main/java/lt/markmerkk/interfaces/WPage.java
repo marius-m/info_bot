@@ -1,8 +1,7 @@
 package lt.markmerkk.interfaces;
 
-import lt.markmerkk.web_components.interfaces.WebComponentBase;
+import lt.markmerkk.web_components.interfaces.WebInputComponent;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -20,5 +19,5 @@ public interface WPage {
      * Returns filter components that should be filled before loading
      * list
      */
-    List<WebComponentBase> filterComponents();
+    List<WebInputComponent> filterComponents();
 }

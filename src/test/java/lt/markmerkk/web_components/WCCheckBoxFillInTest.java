@@ -14,14 +14,14 @@ public class WCCheckBoxFillInTest {
     @Test
     public void testNullElement() throws Exception {
         WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath", "value_to_fill");
-        textComponent.fillIn(null); // Should not do anything!
+        textComponent.fill(null); // Should not do anything!
     }
 
     @Test
     public void testValid() throws Exception {
         WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath", "value_to_fill");
         WebElement webElement = mock(WebElement.class);
-        textComponent.fillIn(webElement);
+        textComponent.fill(webElement);
         verify(webElement, times(1)).sendKeys("value_to_fill");
     }
 
@@ -29,7 +29,7 @@ public class WCCheckBoxFillInTest {
     public void testNullValue() throws Exception {
         WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath", "value_to_fill");
         WebElement webElement = mock(WebElement.class);
-        textComponent.fillIn(webElement);
+        textComponent.fill(webElement);
         verify(webElement, times(1)).sendKeys("value_to_fill");
     }
 

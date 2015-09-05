@@ -24,6 +24,12 @@ public class SimpleFilterInitTest {
         SimpleFilter filter = new SimpleFilter(mock(WebDriver.class), null);
     }
 
+    @Test
+    public void testValid() throws Exception {
+        SimpleFilter filter = new SimpleFilter(mock(WebDriver.class), mock(WPage.class));
+        assertNotNull(filter);
+    }
+
     //endregion
 
 
