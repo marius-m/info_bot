@@ -1,7 +1,6 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.WPage;
-import lt.markmerkk.web_components.WCCheckBox;
 import lt.markmerkk.web_components.interfaces.WebInputComponent;
 
 import java.util.ArrayList;

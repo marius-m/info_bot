@@ -2,8 +2,8 @@ package lt.markmerkk.modules;
 
 import dagger.Module;
 import dagger.Provides;
+import lt.markmerkk.GeneralPage;
 import lt.markmerkk.SimpleFilter;
-import lt.markmerkk.PageAruodas;
 import lt.markmerkk.interfaces.PageFilter;
 import lt.markmerkk.interfaces.WPage;
 import org.openqa.selenium.WebDriver;
@@ -26,7 +26,7 @@ public class SimpleWebRunnerModule {
     @Provides
     @Singleton
     WPage providesPage() {
-        return new PageAruodas();
+        return new GeneralPage();
     }
 
     @Provides
