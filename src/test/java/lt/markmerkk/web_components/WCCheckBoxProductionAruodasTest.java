@@ -2,6 +2,7 @@ package lt.markmerkk.web_components;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,7 @@ import static org.junit.Assert.*;
 /**
  * Created by mariusmerkevicius on 9/5/15.
  */
+@Ignore
 public class WCCheckBoxProductionAruodasTest extends BaseProductionTest {
     @Test
     public void testFillInInput() throws Exception {

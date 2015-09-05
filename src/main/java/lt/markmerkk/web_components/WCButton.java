@@ -27,7 +27,6 @@ public class WCButton extends WCBaseInput {
     public void fill(WebElement element) throws WebDriverException, IllegalArgumentException {
         if (element == null)
             return;
-        logger.debug("Pressing " + name + " component");
         element.click();
     }
 

@@ -16,6 +16,7 @@ import static org.junit.Assert.*;
  *
  * This is a large test. This should not run as daily one!
  */
+@Ignore
 public class WCTextProductionAruodasTest extends BaseProductionTest {
 
     @Test
