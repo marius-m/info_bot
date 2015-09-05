@@ -9,21 +9,16 @@ public class WCCheckBoxInitTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNullName() throws Exception {
-        new WCCheckBox(null, "//asdf", "asdf");
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testNullValue() throws Exception {
-        new WCCheckBox("asdf", "//asdf", null);
+        new WCCheckBox(null, "//asdf");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testNullPath() throws Exception {
-        new WCCheckBox("asdf", null, "asdf");
+        new WCCheckBox("asdf", null);
     }
 
     @Test
     public void testValid() throws Exception {
-        new WCCheckBox("asdf", "//asdf", "asdf");
+        new WCCheckBox("asdf", "//asdf");
     }
 }

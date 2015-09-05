@@ -20,7 +20,7 @@ public class PageAruodas implements WPage {
     @Override
     public List<WebInputComponent> filterComponents() {
         return new ArrayList<WebInputComponent>() {{
-            add(new WCCheckBox("room_number_from", "//select[@name='FRoomNumMin']//", "2"));
+//            add(new WCCheckBox("room_number_from", "//select[@name='FRoomNumMin']//", "2"));
 //            add(new WCCheckBox("room_number_to", "//select[@name='FRoomNumMax']", "3"));
 //            add(new WCText("max_price", "//input[@name='FPriceMax']", "100000"));
 //            add(new WCCheckBox("region", "//select[@name='FRegion']", "Vilnius"));
