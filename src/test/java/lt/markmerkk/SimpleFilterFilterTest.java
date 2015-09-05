@@ -4,9 +4,7 @@ import lt.markmerkk.interfaces.WPage;
 import lt.markmerkk.web_components.interfaces.WebInputComponent;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.ArrayList;
 
@@ -32,9 +30,42 @@ public class SimpleFilterFilterTest {
     @Test
     public void testNullFilterElements() throws Exception {
         filter.fillIn();
-        // When components are empty, it should not call any methods on the driver
         verify(webDriver, never()).findElement(any(By.class));
         verify(webDriver, never()).findElements(any(By.class));
     }
 
+    @Test
+    public void testEmptyFilterElements() throws Exception {
+        when(page.filterComponents()).thenReturn(new ArrayList<WebInputComponent>());
+        filter.fillIn();
+        verify(webDriver, never()).findElement(any(By.class));
+        verify(webDriver, never()).findElements(any(By.class));
+    }
+
+    @Test
+    public void testOneFilterComponent() throws Exception {
+        ArrayList<WebInputComponent> webComponents = new ArrayList<WebInputComponent>() {{
+            add(mock(WebInputComponent.class));
+        }};
+        when(page.filterComponents()).thenReturn(webComponents);
+        filter.fillIn();
+        verify(webComponents.get(0), times(1)).find(any(WebDriver.class));
+        verify(webComponents.get(0), times(1)).fill(any(WebElement.class));
+    }
+
+    @Test
+    public void testManyFilterComponents() throws Exception {
+        ArrayList<WebInputComponent> webComponents = new ArrayList<WebInputComponent>() {{
+            add(mock(WebInputComponent.class));
+            add(mock(WebInputComponent.class));
+            add(mock(WebInputComponent.class));
+        }};
+        when(page.filterComponents()).thenReturn(webComponents);
+        filter.fillIn();
+
+        for (WebInputComponent webComponent : webComponents) {
+            verify(webComponent, times(1)).find(any(WebDriver.class));
+            verify(webComponent, times(1)).fill(any(WebElement.class));
+        }
+    }
 }

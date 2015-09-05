@@ -43,6 +43,7 @@ public abstract class WCBaseInput implements WebInputComponent {
     public void fill(WebElement element) throws WebDriverException, IllegalArgumentException {
         if (element == null)
             throw new IllegalArgumentException("Error getting element to fill in!");
+        fillElement(element);
         logger.debug("Filling " + name + " component with \"" + value + "\" value.");
     }
 
