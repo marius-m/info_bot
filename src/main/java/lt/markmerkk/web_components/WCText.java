@@ -1,13 +1,9 @@
 package lt.markmerkk.web_components;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.NoSuchElementException;
 
 /**
  * Created by mariusmerkevicius on 9/4/15.
@@ -24,4 +20,9 @@ public class WCText extends WCBaseInput {
         logger = LoggerFactory.getLogger(WCText.class);
     }
 
+    @Override
+    public void fill(WebElement element) throws WebDriverException, IllegalArgumentException {
+        super.fill(element);
+        element.sendKeys(value);
+    }
 }

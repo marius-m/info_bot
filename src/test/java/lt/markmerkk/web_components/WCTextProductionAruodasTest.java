@@ -38,8 +38,8 @@ public class WCTextProductionAruodasTest {
 
         WebElement element = textInput.find(driver);
         assertNotNull(element);
-        assertEquals("", element.getText());
+        assertEquals("", element.getAttribute("value"));
         textInput.fill(element);
-        assertEquals("100", element.getText());
+        assertEquals("100", element.getAttribute("value"));
     }
 }
