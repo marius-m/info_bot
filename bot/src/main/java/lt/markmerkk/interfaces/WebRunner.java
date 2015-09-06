@@ -8,6 +8,6 @@ public interface WebRunner {
     /**
      * Runner method with provided inspector
      */
-    void run();
+    void run() throws InterruptedException;
 
 }

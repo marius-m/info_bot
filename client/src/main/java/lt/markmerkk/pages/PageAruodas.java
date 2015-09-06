@@ -1,6 +1,9 @@
 package lt.markmerkk.pages;
 
 import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.web_components.WCButton;
+import lt.markmerkk.web_components.WCCheckBox;
+import lt.markmerkk.web_components.WCText;
 import lt.markmerkk.web_components.interfaces.WebInputComponent;
 
 import java.util.ArrayList;
@@ -19,12 +22,11 @@ public class PageAruodas implements WPage {
     @Override
     public List<WebInputComponent> filterComponents() {
         return new ArrayList<WebInputComponent>() {{
-//            add(new WCCheckBox("room_number_from", "//select[@name='FRoomNumMin']//", "2"));
-//            add(new WCCheckBox("room_number_to", "//select[@name='FRoomNumMax']", "3"));
-//            add(new WCText("max_price", "//input[@name='FPriceMax']", "100000"));
-//            add(new WCCheckBox("region", "//select[@name='FRegion']", "Vilnius"));
-//            add(new WCCheckBox("district", "//select[@name='FDistrict']", "Vilniaus m."));
-            //add(new WCButton("filter_button", "//from[@id='searchForm']//input[@type='submit']"));
+            add(new WCCheckBox("room_number_from", "//select[@name='FRoomNumMin']/option[@value='2']"));
+            add(new WCCheckBox("room_number_to", "//select[@name='FRoomNumMax']/option[@value='3']"));
+            add(new WCText("max_price", "//input[@name='FPriceMax']", "100000"));
+            add(new WCCheckBox("region", "//select[@name='FRegion']/option[@value='461']"));
+            add(new WCButton("filter_button", "//form[@id='searchForm']//input[@type='submit']"));
         }};
     }
 }

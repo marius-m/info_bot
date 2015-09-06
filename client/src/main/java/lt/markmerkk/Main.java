@@ -22,7 +22,9 @@ public class Main {
         WebRunnerComponent component = DaggerWebRunnerComponent.builder()
                 .webRunnerModule(new WebRunnerModule(new PageAruodas()))
                 .build();
-        component.runner().run();
+        try {
+            component.runner().run();
+        } catch (InterruptedException e) { }
 
         logger.info("Ending");
     }

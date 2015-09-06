@@ -28,7 +28,7 @@ public class SimpleWebRunner implements WebRunner {
     }
 
     @Override
-    public void run() {
+    public void run() throws InterruptedException {
         if (page.url() == null) {
             logger.error("No url specified!");
             driver.quit();
@@ -37,6 +37,7 @@ public class SimpleWebRunner implements WebRunner {
 
         driver.get(page.url());
         filter.fillIn();
+        Thread.sleep(5000);
         driver.quit();
     }
 
