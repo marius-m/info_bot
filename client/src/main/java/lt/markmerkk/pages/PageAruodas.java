@@ -4,8 +4,7 @@ import lt.markmerkk.interfaces.WPage;
 import lt.markmerkk.web_components.WCButton;
 import lt.markmerkk.web_components.WCCheckBox;
 import lt.markmerkk.web_components.WCText;
-import lt.markmerkk.web_components.interfaces.WebComponent;
-import lt.markmerkk.web_components.interfaces.WebInputComponent;
+import lt.markmerkk.web_components.interfaces.WebFormComponent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +20,8 @@ public class PageAruodas implements WPage {
     }
 
     @Override
-    public List<WebComponent> filterComponents() {
-        return new ArrayList<WebComponent>() {{
+    public List<WebFormComponent> filterComponents() {
+        return new ArrayList<WebFormComponent>() {{
             add(new WCCheckBox("room_number_from", "//select[@name='FRoomNumMin']/option[@value='2']"));
             add(new WCCheckBox("room_number_to", "//select[@name='FRoomNumMax']/option[@value='3']"));
             add(new WCText("max_price", "//input[@name='FPriceMax']", "100000"));

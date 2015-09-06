@@ -2,8 +2,8 @@ package lt.markmerkk;
 
 import lt.markmerkk.interfaces.PageFilter;
 import lt.markmerkk.interfaces.WPage;
-import lt.markmerkk.web_components.interfaces.WebComponent;
-import lt.markmerkk.web_components.interfaces.WebInputComponent;
+import lt.markmerkk.web_components.interfaces.WebFormComponent;
+import lt.markmerkk.web_components.interfaces.WebFormInputComponent;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.slf4j.Logger;
@@ -33,15 +33,15 @@ public class SimpleFilter implements PageFilter {
     @Override
     public void fillFilterForm() {
         logger.info("Executing filter");
-        List<WebComponent> components = page.filterComponents();
+        List<WebFormComponent> components = page.filterComponents();
         if ((components != null && components.size() == 0) || components == null)
             logger.info("No filter components specified!");
         if (components == null)
             return;
-        for (WebComponent component : components) {
-            if (!(component instanceof WebInputComponent))
+        for (WebFormComponent component : components) {
+            if (!(component instanceof WebFormInputComponent))
                 continue;
-            WebInputComponent inputComponent = (WebInputComponent) component;
+            WebFormInputComponent inputComponent = (WebFormInputComponent) component;
             try {
                 inputComponent.fill(inputComponent.find(driver));
             } catch (NoSuchElementException e) {

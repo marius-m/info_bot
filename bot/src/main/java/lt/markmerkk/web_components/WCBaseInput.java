@@ -1,6 +1,6 @@
 package lt.markmerkk.web_components;
 
-import lt.markmerkk.web_components.interfaces.WebInputComponent;
+import lt.markmerkk.web_components.interfaces.WebFormInputComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
  * A base abstract class that represents component data that is
  * used for filling in user input.
  */
-public abstract class WCBaseInput implements WebInputComponent {
+public abstract class WCBaseInput implements WebFormInputComponent {
     private final Logger logger;
     final String name;
     final String path;

@@ -3,8 +3,7 @@ package lt.markmerkk;
 import lt.markmerkk.components.DaggerWebRunnerComponent;
 import lt.markmerkk.interfaces.WPage;
 import lt.markmerkk.modules.WebRunnerModule;
-import lt.markmerkk.web_components.interfaces.WebComponent;
-import lt.markmerkk.web_components.interfaces.WebInputComponent;
+import lt.markmerkk.web_components.interfaces.WebFormComponent;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -30,7 +29,7 @@ public class SimpleWebRunnerDependencyTest {
                     }
 
                     @Override
-                    public List<WebComponent> filterComponents() {
+                    public List<WebFormComponent> filterComponents() {
                         return null;
                     }
                 }))

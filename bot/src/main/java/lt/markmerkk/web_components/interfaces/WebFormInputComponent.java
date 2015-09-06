@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
  * Created by mariusmerkevicius on 9/4/15.
  * An interface that describes component type and its functionality
  */
-public interface WebInputComponent extends WebComponent {
+public interface WebFormInputComponent extends WebFormComponent {
 
     /**
      * Path that is used to find the component
