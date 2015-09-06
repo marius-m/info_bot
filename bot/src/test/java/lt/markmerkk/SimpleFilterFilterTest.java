@@ -3,6 +3,7 @@ package lt.markmerkk;
 import lt.markmerkk.interfaces.WPage;
 import lt.markmerkk.web_components.interfaces.WebFormComponent;
 import lt.markmerkk.web_components.interfaces.WebFormInputComponent;
+import lt.markmerkk.web_components.interfaces.WebFormSupportComponent;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
@@ -144,6 +145,32 @@ public class SimpleFilterFilterTest {
         verify(toInput(webFormComponents.get(0)), times(1)).fill(any(WebElement.class));
         verify(toInput(webFormComponents.get(2)), times(1)).find(any(WebDriver.class));
         verify(toInput(webFormComponents.get(2)), times(1)).fill(any(WebElement.class));
+    }
+
+    @Test
+    public void testMixedComponentsExecutionInTheList() throws Exception {
+        ArrayList<WebFormComponent> webFormComponents = new ArrayList<WebFormComponent>() {{
+            add(mock(WebFormInputComponent.class));
+            add(mock(WebFormComponent.class));
+            add(mock(WebFormInputComponent.class));
+            add(mock(WebFormComponent.class));
+            add(mock(WebFormSupportComponent.class));
+            add(mock(WebFormComponent.class));
+            add(mock(WebFormSupportComponent.class));
+        }};
+        when(page.filterComponents()).thenReturn(webFormComponents);
+        filter.fillFilterForm();
+
+        // Verify the right component execution
+        for (WebFormComponent webFormComponent : webFormComponents) {
+            if (webFormComponent instanceof WebFormInputComponent) {
+                verify(((WebFormInputComponent) webFormComponent), times(1)).find(any(WebDriver.class));
+                verify(((WebFormInputComponent) webFormComponent), times(1)).fill(any(WebElement.class));
+                continue;
+            }
+            if (webFormComponent instanceof WebFormSupportComponent)
+                verify(((WebFormSupportComponent) webFormComponent), times(1)).exec();
+        }
     }
 
     //region Convenience methods
