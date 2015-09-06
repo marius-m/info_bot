@@ -1,4 +1,4 @@
-package lt.markmerkk.web_components;
+package lt.markmerkk.web_form_components;
 
 import org.junit.Test;
 

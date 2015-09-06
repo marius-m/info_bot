@@ -1,9 +1,9 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.WPage;
-import lt.markmerkk.web_components.interfaces.WebFormComponent;
-import lt.markmerkk.web_components.interfaces.WebFormInputComponent;
-import lt.markmerkk.web_components.interfaces.WebFormSupportComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormInputComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormSupportComponent;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;

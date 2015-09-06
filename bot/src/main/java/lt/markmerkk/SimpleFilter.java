@@ -2,9 +2,9 @@ package lt.markmerkk;
 
 import lt.markmerkk.interfaces.PageFilter;
 import lt.markmerkk.interfaces.WPage;
-import lt.markmerkk.web_components.interfaces.WebFormComponent;
-import lt.markmerkk.web_components.interfaces.WebFormInputComponent;
-import lt.markmerkk.web_components.interfaces.WebFormSupportComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormInputComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormSupportComponent;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
 import org.slf4j.Logger;
@@ -50,7 +50,7 @@ public class SimpleFilter implements PageFilter {
     //region Convenience
 
     /**
-     * Function to handle {@link lt.markmerkk.web_components.interfaces.WebFormSupportComponent}
+     * Function to handle {@link lt.markmerkk.web_form_components.interfaces.WebFormSupportComponent}
      * Returns false, if there was an error in handling component or provided component
      * was the wrong type.
      * @param component general component type to handle

@@ -3,7 +3,7 @@ package lt.markmerkk;
 import lt.markmerkk.components.DaggerWebRunnerComponent;
 import lt.markmerkk.interfaces.WPage;
 import lt.markmerkk.modules.WebRunnerModule;
-import lt.markmerkk.web_components.interfaces.WebFormComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
 import org.junit.Ignore;
 import org.junit.Test;
 

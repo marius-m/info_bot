@@ -1,4 +1,4 @@
-package lt.markmerkk.web_components.interfaces;
+package lt.markmerkk.web_form_components.interfaces;
 
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;

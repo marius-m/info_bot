@@ -1,6 +1,6 @@
 package lt.markmerkk.interfaces;
 
-import lt.markmerkk.web_components.interfaces.WebFormComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
 
 import java.util.List;
 

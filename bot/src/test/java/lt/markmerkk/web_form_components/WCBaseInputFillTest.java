@@ -1,14 +1,9 @@
-package lt.markmerkk.web_components;
+package lt.markmerkk.web_form_components;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 
-import java.util.NoSuchElementException;
-
-import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 
 /**

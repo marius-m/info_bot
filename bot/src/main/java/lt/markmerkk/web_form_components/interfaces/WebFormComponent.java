@@ -1,4 +1,4 @@
-package lt.markmerkk.web_components.interfaces;
+package lt.markmerkk.web_form_components.interfaces;
 
 /**
  * Created by mariusmerkevicius on 9/6/15.

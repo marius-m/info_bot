@@ -1,6 +1,6 @@
-package lt.markmerkk.web_components;
+package lt.markmerkk.web_form_components;
 
-import lt.markmerkk.web_components.interfaces.WebFormSupportComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormSupportComponent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

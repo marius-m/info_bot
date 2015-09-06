@@ -6,6 +6,5 @@ package lt.markmerkk.interfaces;
  */
 public interface PageInspector {
 
-    // Worker methods
     void inspect(WPage page);
 }

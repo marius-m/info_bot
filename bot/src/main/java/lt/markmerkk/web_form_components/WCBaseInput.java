@@ -1,6 +1,6 @@
-package lt.markmerkk.web_components;
+package lt.markmerkk.web_form_components;
 
-import lt.markmerkk.web_components.interfaces.WebFormInputComponent;
+import lt.markmerkk.web_form_components.interfaces.WebFormInputComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;

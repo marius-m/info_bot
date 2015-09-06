@@ -1,12 +1,8 @@
-package lt.markmerkk.web_components;
+package lt.markmerkk.web_form_components;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.junit.Assert.*;
 

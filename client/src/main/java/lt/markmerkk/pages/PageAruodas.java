@@ -1,11 +1,11 @@
 package lt.markmerkk.pages;
 
 import lt.markmerkk.interfaces.WPage;
-import lt.markmerkk.web_components.WCButton;
-import lt.markmerkk.web_components.WCCheckBox;
-import lt.markmerkk.web_components.WCSleep;
-import lt.markmerkk.web_components.WCText;
-import lt.markmerkk.web_components.interfaces.WebFormComponent;
+import lt.markmerkk.web_form_components.WCButton;
+import lt.markmerkk.web_form_components.WCCheckBox;
+import lt.markmerkk.web_form_components.WCSleep;
+import lt.markmerkk.web_form_components.WCText;
+import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
 
 import java.util.ArrayList;
 import java.util.List;
