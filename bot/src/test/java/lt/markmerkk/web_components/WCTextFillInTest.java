@@ -12,7 +12,7 @@ import static org.mockito.Mockito.verify;
  */
 public class WCTextFillInTest {
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testNullElement() throws Exception {
         WCText textComponent = new WCText("asdf", "//somePath", "value_to_fill");
         textComponent.fill(null); // Should not do anything!

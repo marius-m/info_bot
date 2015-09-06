@@ -11,7 +11,7 @@ import static org.mockito.Mockito.verify;
  * Created by mariusmerkevicius on 9/5/15.
  */
 public class WCCheckBoxFillInTest {
-    @Test
+    @Test(expected = IllegalArgumentException.class)
     public void testNullElement() throws Exception {
         WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath");
         textComponent.fill(null); // Should not do anything!
@@ -22,15 +22,7 @@ public class WCCheckBoxFillInTest {
         WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath");
         WebElement webElement = mock(WebElement.class);
         textComponent.fill(webElement);
-        verify(webElement, times(1)).sendKeys("value_to_fill");
-    }
-
-    @Test
-    public void testNullValue() throws Exception {
-        WCCheckBox textComponent = new WCCheckBox("asdf", "//somePath");
-        WebElement webElement = mock(WebElement.class);
-        textComponent.fill(webElement);
-        verify(webElement, times(1)).sendKeys("value_to_fill");
+        verify(webElement, times(1)).click();
     }
 
 }

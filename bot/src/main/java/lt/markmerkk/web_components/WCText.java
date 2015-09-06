@@ -23,6 +23,7 @@ public class WCText extends WCBaseInput {
     @Override
     public void fill(WebElement element) throws WebDriverException, IllegalArgumentException {
         super.fill(element);
+        element.clear();
         element.sendKeys(value);
     }
 }
