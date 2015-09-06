@@ -2,6 +2,7 @@ package lt.markmerkk;
 
 import lt.markmerkk.interfaces.PageFilter;
 import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.web_components.interfaces.WebComponent;
 import lt.markmerkk.web_components.interfaces.WebInputComponent;
 import org.openqa.selenium.*;
 import org.openqa.selenium.NoSuchElementException;
@@ -30,16 +31,19 @@ public class SimpleFilter implements PageFilter {
     }
 
     @Override
-    public void fillIn() {
+    public void fillFilterForm() {
         logger.info("Executing filter");
-        List<WebInputComponent> components = page.filterComponents();
+        List<WebComponent> components = page.filterComponents();
         if ((components != null && components.size() == 0) || components == null)
             logger.info("No filter components specified!");
         if (components == null)
             return;
-        for (WebInputComponent component : components)
+        for (WebComponent component : components) {
+            if (!(component instanceof WebInputComponent))
+                continue;
+            WebInputComponent inputComponent = (WebInputComponent) component;
             try {
-                component.fill(component.find(driver));
+                inputComponent.fill(inputComponent.find(driver));
             } catch (NoSuchElementException e) {
                 logger.debug(e.getMessage());
             } catch (WebDriverException e) {
@@ -47,6 +51,7 @@ public class SimpleFilter implements PageFilter {
             } catch (IllegalArgumentException e) {
                 logger.debug(e.getMessage());
             }
+        }
     }
 
 }

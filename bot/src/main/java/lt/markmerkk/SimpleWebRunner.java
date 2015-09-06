@@ -36,7 +36,7 @@ public class SimpleWebRunner implements WebRunner {
         }
 
         driver.get(page.url());
-        filter.fillIn();
+        filter.fillFilterForm();
         Thread.sleep(5000);
         driver.quit();
     }

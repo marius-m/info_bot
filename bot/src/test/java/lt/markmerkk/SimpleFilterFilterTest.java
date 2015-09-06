@@ -1,6 +1,7 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.web_components.interfaces.WebComponent;
 import lt.markmerkk.web_components.interfaces.WebInputComponent;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,49 +30,49 @@ public class SimpleFilterFilterTest {
 
     @Test
     public void testNullFilterElements() throws Exception {
-        filter.fillIn();
+        filter.fillFilterForm();
         verify(webDriver, never()).findElement(any(By.class));
         verify(webDriver, never()).findElements(any(By.class));
     }
 
     @Test
     public void testEmptyFilterElements() throws Exception {
-        when(page.filterComponents()).thenReturn(new ArrayList<WebInputComponent>());
-        filter.fillIn();
+        when(page.filterComponents()).thenReturn(new ArrayList<WebComponent>());
+        filter.fillFilterForm();
         verify(webDriver, never()).findElement(any(By.class));
         verify(webDriver, never()).findElements(any(By.class));
     }
 
     @Test
     public void testOneFilterComponent() throws Exception {
-        ArrayList<WebInputComponent> webComponents = new ArrayList<WebInputComponent>() {{
+        ArrayList<WebComponent> webComponents = new ArrayList<WebComponent>() {{
             add(mock(WebInputComponent.class));
         }};
         when(page.filterComponents()).thenReturn(webComponents);
-        filter.fillIn();
-        verify(webComponents.get(0), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(0), times(1)).fill(any(WebElement.class));
+        filter.fillFilterForm();
+        verify(((WebInputComponent) webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(0)), times(1)).fill(any(WebElement.class));
     }
 
     @Test
     public void testManyFilterComponents() throws Exception {
-        ArrayList<WebInputComponent> webComponents = new ArrayList<WebInputComponent>() {{
+        ArrayList<WebComponent> webComponents = new ArrayList<WebComponent>() {{
             add(mock(WebInputComponent.class));
             add(mock(WebInputComponent.class));
             add(mock(WebInputComponent.class));
         }};
         when(page.filterComponents()).thenReturn(webComponents);
-        filter.fillIn();
+        filter.fillFilterForm();
 
-        for (WebInputComponent webComponent : webComponents) {
-            verify(webComponent, times(1)).find(any(WebDriver.class));
-            verify(webComponent, times(1)).fill(any(WebElement.class));
+        for (WebComponent webComponent : webComponents) {
+            verify(((WebInputComponent) webComponent), times(1)).find(any(WebDriver.class));
+            verify(((WebInputComponent) webComponent), times(1)).fill(any(WebElement.class));
         }
     }
 
     @Test
     public void testNoSuchElement() throws Exception {
-        ArrayList<WebInputComponent> webComponents = new ArrayList<WebInputComponent>() {{
+        ArrayList<WebComponent> webComponents = new ArrayList<WebComponent>() {{
             add(mock(WebInputComponent.class));
             WebInputComponent noSuchElement = mock(WebInputComponent.class);
             when(noSuchElement.find(any(WebDriver.class))).thenThrow(new NoSuchElementException("Element was not found"));
@@ -79,19 +80,19 @@ public class SimpleFilterFilterTest {
             add(mock(WebInputComponent.class));
         }};
         when(page.filterComponents()).thenReturn(webComponents);
-        filter.fillIn();
+        filter.fillFilterForm();
 
-        verify(webComponents.get(0), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(0), times(1)).fill(any(WebElement.class));
-        verify(webComponents.get(1), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(1), never()).fill(any(WebElement.class));
-        verify(webComponents.get(2), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(2), times(1)).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(0)), times(1)).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(1)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(1)), never()).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(2)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(2)), times(1)).fill(any(WebElement.class));
     }
 
     @Test
     public void testWebDriverErrorWhenFinding() throws Exception {
-        ArrayList<WebInputComponent> webComponents = new ArrayList<WebInputComponent>() {{
+        ArrayList<WebComponent> webComponents = new ArrayList<WebComponent>() {{
             add(mock(WebInputComponent.class));
             WebInputComponent webDriverErrorElement = mock(WebInputComponent.class);
             when(webDriverErrorElement.find(any(WebDriver.class))).thenThrow(new WebDriverException());
@@ -99,19 +100,19 @@ public class SimpleFilterFilterTest {
             add(mock(WebInputComponent.class));
         }};
         when(page.filterComponents()).thenReturn(webComponents);
-        filter.fillIn();
+        filter.fillFilterForm();
 
-        verify(webComponents.get(0), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(0), times(1)).fill(any(WebElement.class));
-        verify(webComponents.get(1), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(1), never()).fill(any(WebElement.class));
-        verify(webComponents.get(2), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(2), times(1)).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(0)), times(1)).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(1)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(1)), never()).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(2)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(2)), times(1)).fill(any(WebElement.class));
     }
 
     @Test
     public void testWebDriverErrorWhenFilling() throws Exception {
-        ArrayList<WebInputComponent> webComponents = new ArrayList<WebInputComponent>() {{
+        ArrayList<WebComponent> webComponents = new ArrayList<WebComponent>() {{
             add(mock(WebInputComponent.class));
             WebInputComponent webDriverErrorElement = mock(WebInputComponent.class);
             doThrow(new WebDriverException()).when(webDriverErrorElement).fill(any(WebElement.class));
@@ -119,13 +120,13 @@ public class SimpleFilterFilterTest {
             add(mock(WebInputComponent.class));
         }};
         when(page.filterComponents()).thenReturn(webComponents);
-        filter.fillIn();
+        filter.fillFilterForm();
 
-        verify(webComponents.get(0), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(0), times(1)).fill(any(WebElement.class));
-        verify(webComponents.get(1), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(1), times(1)).fill(any(WebElement.class));
-        verify(webComponents.get(2), times(1)).find(any(WebDriver.class));
-        verify(webComponents.get(2), times(1)).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(0)), times(1)).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(1)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(1)), times(1)).fill(any(WebElement.class));
+        verify(((WebInputComponent) webComponents.get(2)), times(1)).find(any(WebDriver.class));
+        verify(((WebInputComponent) webComponents.get(2)), times(1)).fill(any(WebElement.class));
     }
 }

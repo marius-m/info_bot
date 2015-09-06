@@ -6,5 +6,5 @@ import org.openqa.selenium.WebDriver;
  * Created by mariusmerkevicius on 9/4/15.
  */
 public interface PageFilter {
-    void fillIn();
+    void fillFilterForm();
 }
