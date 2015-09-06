@@ -50,8 +50,8 @@ public class SimpleFilterFilterTest {
         }};
         when(page.filterComponents()).thenReturn(webComponents);
         filter.fillFilterForm();
-        verify(((WebInputComponent) webComponents.get(0)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(0)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(0)), times(1)).fill(any(WebElement.class));
     }
 
     @Test
@@ -65,8 +65,8 @@ public class SimpleFilterFilterTest {
         filter.fillFilterForm();
 
         for (WebComponent webComponent : webComponents) {
-            verify(((WebInputComponent) webComponent), times(1)).find(any(WebDriver.class));
-            verify(((WebInputComponent) webComponent), times(1)).fill(any(WebElement.class));
+            verify(toInput(webComponent), times(1)).find(any(WebDriver.class));
+            verify(toInput(webComponent), times(1)).fill(any(WebElement.class));
         }
     }
 
@@ -82,12 +82,12 @@ public class SimpleFilterFilterTest {
         when(page.filterComponents()).thenReturn(webComponents);
         filter.fillFilterForm();
 
-        verify(((WebInputComponent) webComponents.get(0)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(0)), times(1)).fill(any(WebElement.class));
-        verify(((WebInputComponent) webComponents.get(1)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(1)), never()).fill(any(WebElement.class));
-        verify(((WebInputComponent) webComponents.get(2)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(2)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(0)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(1)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(1)), never()).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(2)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(2)), times(1)).fill(any(WebElement.class));
     }
 
     @Test
@@ -102,12 +102,12 @@ public class SimpleFilterFilterTest {
         when(page.filterComponents()).thenReturn(webComponents);
         filter.fillFilterForm();
 
-        verify(((WebInputComponent) webComponents.get(0)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(0)), times(1)).fill(any(WebElement.class));
-        verify(((WebInputComponent) webComponents.get(1)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(1)), never()).fill(any(WebElement.class));
-        verify(((WebInputComponent) webComponents.get(2)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(2)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(0)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(1)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(1)), never()).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(2)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(2)), times(1)).fill(any(WebElement.class));
     }
 
     @Test
@@ -122,11 +122,36 @@ public class SimpleFilterFilterTest {
         when(page.filterComponents()).thenReturn(webComponents);
         filter.fillFilterForm();
 
-        verify(((WebInputComponent) webComponents.get(0)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(0)), times(1)).fill(any(WebElement.class));
-        verify(((WebInputComponent) webComponents.get(1)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(1)), times(1)).fill(any(WebElement.class));
-        verify(((WebInputComponent) webComponents.get(2)), times(1)).find(any(WebDriver.class));
-        verify(((WebInputComponent) webComponents.get(2)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(0)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(1)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(1)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(2)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(2)), times(1)).fill(any(WebElement.class));
     }
+
+    @Test
+    public void testMixedComponentsInTheList() throws Exception {
+        ArrayList<WebComponent> webComponents = new ArrayList<WebComponent>() {{
+            add(mock(WebInputComponent.class));
+            add(mock(WebComponent.class));
+            add(mock(WebInputComponent.class));
+        }};
+        when(page.filterComponents()).thenReturn(webComponents);
+        filter.fillFilterForm();
+
+        verify(toInput(webComponents.get(0)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(0)), times(1)).fill(any(WebElement.class));
+        verify(toInput(webComponents.get(2)), times(1)).find(any(WebDriver.class));
+        verify(toInput(webComponents.get(2)), times(1)).fill(any(WebElement.class));
+    }
+
+    //region Convenience methods
+
+    public static WebInputComponent toInput(WebComponent component) {
+        return (WebInputComponent) component;
+    }
+
+    //endregion
+
 }
