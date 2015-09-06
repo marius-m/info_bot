@@ -1,4 +1,4 @@
-package lt.markmerkk;
+package lt.markmerkk.pages;
 
 import lt.markmerkk.interfaces.WPage;
 import lt.markmerkk.web_components.interfaces.WebInputComponent;

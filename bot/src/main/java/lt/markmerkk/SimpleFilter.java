@@ -33,6 +33,8 @@ public class SimpleFilter implements PageFilter {
     public void fillIn() {
         logger.info("Executing filter");
         List<WebInputComponent> components = page.filterComponents();
+        if ((components != null && components.size() == 0) || components == null)
+            logger.info("No filter components specified!");
         if (components == null)
             return;
         for (WebInputComponent component : components)
