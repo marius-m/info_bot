@@ -1,7 +1,8 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.PageFilter;
-import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.interfaces.page.WPage;
+import lt.markmerkk.interfaces.page.WPageFilterable;
 import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
 import lt.markmerkk.web_form_components.interfaces.WebFormInputComponent;
 import lt.markmerkk.web_form_components.interfaces.WebFormSupportComponent;
@@ -18,10 +19,10 @@ import java.util.*;
 public class SimpleFilter implements PageFilter {
 
     WebDriver driver;
-    WPage page;
+    WPageFilterable page;
     private final Logger logger;
 
-    public SimpleFilter(WebDriver driver, WPage page) {
+    public SimpleFilter(WebDriver driver, WPageFilterable page) {
         logger = LoggerFactory.getLogger(SimpleFilter.class);
         if (driver == null)
             throw new IllegalArgumentException("Filter cannot function without web driver");

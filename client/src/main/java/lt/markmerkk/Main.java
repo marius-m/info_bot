@@ -19,12 +19,11 @@ public class Main {
         Logger logger = LoggerFactory.getLogger(Main.class);
         logger.info("Starting app");
 
+        PageAruodas page = new PageAruodas();
         WebRunnerComponent component = DaggerWebRunnerComponent.builder()
-                .webRunnerModule(new WebRunnerModule(new PageAruodas()))
+                .webRunnerModule(new WebRunnerModule(page, page))
                 .build();
-        try {
-            component.runner().run();
-        } catch (InterruptedException e) { }
+        component.runner().run();
 
         logger.info("Ending");
     }

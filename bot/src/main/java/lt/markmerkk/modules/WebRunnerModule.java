@@ -4,7 +4,8 @@ import dagger.Module;
 import dagger.Provides;
 import lt.markmerkk.SimpleFilter;
 import lt.markmerkk.interfaces.PageFilter;
-import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.interfaces.page.WPage;
+import lt.markmerkk.interfaces.page.WPageFilterable;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -17,9 +18,11 @@ import javax.inject.Singleton;
 public class WebRunnerModule {
 
     private final WPage page;
+    private final WPageFilterable pageFilterable;
 
-    public WebRunnerModule(WPage page) {
+    public WebRunnerModule(WPage page, WPageFilterable filterable) {
         this.page = page;
+        this.pageFilterable = filterable;
     }
 
     @Provides
@@ -35,8 +38,8 @@ public class WebRunnerModule {
     }
 
     @Provides
-    PageFilter providesPageFilter(WebDriver driver, WPage page) {
-        return new SimpleFilter(driver, page);
+    PageFilter providesPageFilter(WebDriver driver) {
+        return new SimpleFilter(driver, pageFilterable);
     }
 
 }

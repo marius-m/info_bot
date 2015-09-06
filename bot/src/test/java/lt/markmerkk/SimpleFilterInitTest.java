@@ -1,6 +1,6 @@
 package lt.markmerkk;
 
-import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.interfaces.page.WPage;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 

@@ -1,7 +1,7 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.PageFilter;
-import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.interfaces.page.WPage;
 import lt.markmerkk.interfaces.WebRunner;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ public class SimpleWebRunner implements WebRunner {
     }
 
     @Override
-    public void run() throws InterruptedException {
+    public void run() {
         if (page.url() == null) {
             logger.error("No url specified!");
             driver.quit();
@@ -37,7 +37,6 @@ public class SimpleWebRunner implements WebRunner {
 
         driver.get(page.url());
         filter.fillFilterForm();
-        Thread.sleep(5000);
         driver.quit();
     }
 

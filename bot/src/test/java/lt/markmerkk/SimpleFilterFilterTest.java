@@ -1,6 +1,6 @@
 package lt.markmerkk;
 
-import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.interfaces.page.WPage;
 import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
 import lt.markmerkk.web_form_components.interfaces.WebFormInputComponent;
 import lt.markmerkk.web_form_components.interfaces.WebFormSupportComponent;
