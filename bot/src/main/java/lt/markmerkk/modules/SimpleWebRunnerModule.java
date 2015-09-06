@@ -2,7 +2,6 @@ package lt.markmerkk.modules;
 
 import dagger.Module;
 import dagger.Provides;
-import lt.markmerkk.GeneralPage;
 import lt.markmerkk.SimpleFilter;
 import lt.markmerkk.interfaces.PageFilter;
 import lt.markmerkk.interfaces.WPage;
@@ -17,6 +16,12 @@ import javax.inject.Singleton;
 @Module
 public class SimpleWebRunnerModule {
 
+    private final WPage page;
+
+    public SimpleWebRunnerModule(WPage page) {
+        this.page = page;
+    }
+
     @Provides
     @Singleton
     WebDriver providesWebDriver() {
@@ -26,7 +31,7 @@ public class SimpleWebRunnerModule {
     @Provides
     @Singleton
     WPage providesPage() {
-        return new GeneralPage();
+        return page;
     }
 
     @Provides

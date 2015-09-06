@@ -29,10 +29,6 @@ public final class DaggerSimpleWebRunnerComponent implements SimpleWebRunnerComp
     return new Builder();
   }
 
-  public static SimpleWebRunnerComponent create() {  
-    return builder().build();
-  }
-
   private void initialize(final Builder builder) {  
     this.providesWebDriverProvider = ScopedProvider.create(SimpleWebRunnerModule_ProvidesWebDriverFactory.create(builder.simpleWebRunnerModule));
     this.providesPageProvider = ScopedProvider.create(SimpleWebRunnerModule_ProvidesPageFactory.create(builder.simpleWebRunnerModule));
@@ -41,7 +37,7 @@ public final class DaggerSimpleWebRunnerComponent implements SimpleWebRunnerComp
   }
 
   @Override
-  public SimpleWebRunner maker() {  
+  public SimpleWebRunner runner() {  
     return simpleWebRunnerProvider.get();
   }
 
@@ -53,7 +49,7 @@ public final class DaggerSimpleWebRunnerComponent implements SimpleWebRunnerComp
   
     public SimpleWebRunnerComponent build() {  
       if (simpleWebRunnerModule == null) {
-        this.simpleWebRunnerModule = new SimpleWebRunnerModule();
+        throw new IllegalStateException("simpleWebRunnerModule must be set");
       }
       return new DaggerSimpleWebRunnerComponent(this);
     }

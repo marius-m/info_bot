@@ -15,7 +15,7 @@ public class SimpleWebRunnerDependencyTest {
     @Test
     @Ignore
     public void testDependencyInit() throws Exception {
-        SimpleWebRunner webRunner = DaggerSimpleWebRunnerComponent.create().maker();
+        SimpleWebRunner webRunner = DaggerSimpleWebRunnerComponent.create().runner();
         webRunner.run();
         assertNotNull(webRunner);
         assertNotNull(webRunner.driver);
