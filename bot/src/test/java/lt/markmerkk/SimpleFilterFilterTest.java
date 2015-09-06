@@ -1,6 +1,7 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.page.WPage;
+import lt.markmerkk.interfaces.page.WPageFilterable;
 import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
 import lt.markmerkk.web_form_components.interfaces.WebFormInputComponent;
 import lt.markmerkk.web_form_components.interfaces.WebFormSupportComponent;
@@ -19,13 +20,13 @@ import static org.mockito.Mockito.*;
 public class SimpleFilterFilterTest {
 
     private WebDriver webDriver;
-    private WPage page;
+    private WPageFilterable page;
     private SimpleFilter filter;
 
     @Before
     public void setUp() throws Exception {
         webDriver = mock(WebDriver.class);
-        page = mock(WPage.class);
+        page = mock(WPageFilterable.class);
         filter = spy(new SimpleFilter(webDriver, page));
     }
 

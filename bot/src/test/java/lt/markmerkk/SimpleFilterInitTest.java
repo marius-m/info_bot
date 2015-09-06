@@ -1,6 +1,7 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.page.WPage;
+import lt.markmerkk.interfaces.page.WPageFilterable;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
@@ -16,7 +17,7 @@ public class SimpleFilterInitTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testNullWebDriver() throws Exception {
-        SimpleFilter filter = new SimpleFilter(null, mock(WPage.class));
+        SimpleFilter filter = new SimpleFilter(null, mock(WPageFilterable.class));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -26,7 +27,7 @@ public class SimpleFilterInitTest {
 
     @Test
     public void testValid() throws Exception {
-        SimpleFilter filter = new SimpleFilter(mock(WebDriver.class), mock(WPage.class));
+        SimpleFilter filter = new SimpleFilter(mock(WebDriver.class), mock(WPageFilterable.class));
         assertNotNull(filter);
     }
 

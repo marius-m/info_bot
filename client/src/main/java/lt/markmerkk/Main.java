@@ -21,7 +21,7 @@ public class Main {
 
         PageAruodas page = new PageAruodas();
         WebRunnerComponent component = DaggerWebRunnerComponent.builder()
-                .webRunnerModule(new WebRunnerModule(page, page))
+                .webRunnerModule(new WebRunnerModule(page, page, page))
                 .build();
         component.runner().run();
 

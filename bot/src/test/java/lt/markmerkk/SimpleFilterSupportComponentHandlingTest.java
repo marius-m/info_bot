@@ -1,6 +1,7 @@
 package lt.markmerkk;
 
 import lt.markmerkk.interfaces.page.WPage;
+import lt.markmerkk.interfaces.page.WPageFilterable;
 import lt.markmerkk.web_form_components.interfaces.WebFormComponent;
 import lt.markmerkk.web_form_components.interfaces.WebFormInputComponent;
 import lt.markmerkk.web_form_components.interfaces.WebFormSupportComponent;
@@ -19,7 +20,7 @@ public class SimpleFilterSupportComponentHandlingTest {
 
     @Before
     public void setUp() throws Exception {
-        filter = new SimpleFilter(mock(WebDriver.class), mock(WPage.class));
+        filter = new SimpleFilter(mock(WebDriver.class), mock(WPageFilterable.class));
     }
 
     @Test

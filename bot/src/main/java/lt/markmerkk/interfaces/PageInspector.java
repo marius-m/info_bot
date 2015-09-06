@@ -8,5 +8,8 @@ import lt.markmerkk.interfaces.page.WPage;
  */
 public interface PageInspector {
 
+    /**
+     * A function that is executed when trying to inspect data that must be gathered.
+     */
     void inspect();
 }
