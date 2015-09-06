@@ -1,8 +1,13 @@
 package lt.markmerkk;
 
-import lt.markmerkk.components.DaggerSimpleWebRunnerComponent;
+import lt.markmerkk.components.DaggerWebRunnerComponent;
+import lt.markmerkk.interfaces.WPage;
+import lt.markmerkk.modules.WebRunnerModule;
+import lt.markmerkk.web_components.interfaces.WebInputComponent;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -15,8 +20,20 @@ public class SimpleWebRunnerDependencyTest {
     @Test
     @Ignore
     public void testDependencyInit() throws Exception {
-        SimpleWebRunner webRunner = DaggerSimpleWebRunnerComponent.create().runner();
-        webRunner.run();
+        SimpleWebRunner webRunner = DaggerWebRunnerComponent
+                .builder()
+                .webRunnerModule(new WebRunnerModule(new WPage() {
+                    @Override
+                    public String url() {
+                        return null;
+                    }
+
+                    @Override
+                    public List<WebInputComponent> filterComponents() {
+                        return null;
+                    }
+                }))
+                .build().runner();
         assertNotNull(webRunner);
         assertNotNull(webRunner.driver);
         assertNotNull(webRunner.filter);

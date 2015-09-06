@@ -1,10 +1,5 @@
 package lt.markmerkk;
 
-import lt.markmerkk.components.DaggerSimpleWebRunnerComponent;
-import lt.markmerkk.modules.SimpleWebRunnerModule;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 public class Main {
 
     // Disabling log output from selenium

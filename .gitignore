@@ -34,6 +34,6 @@ proguard/
 # Android Studio
 out/
 build/
-src/dagger/
+bot/src/dagger/
 checkLog.log
 checkLog.log*

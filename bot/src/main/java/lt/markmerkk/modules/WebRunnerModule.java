@@ -14,11 +14,11 @@ import javax.inject.Singleton;
  * Created by mariusmerkevicius on 9/2/15.
  */
 @Module
-public class SimpleWebRunnerModule {
+public class WebRunnerModule {
 
     private final WPage page;
 
-    public SimpleWebRunnerModule(WPage page) {
+    public WebRunnerModule(WPage page) {
         this.page = page;
     }
 

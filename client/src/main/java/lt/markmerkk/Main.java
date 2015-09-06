@@ -1,8 +1,8 @@
 package lt.markmerkk;
 
-import lt.markmerkk.components.DaggerSimpleWebRunnerComponent;
-import lt.markmerkk.components.SimpleWebRunnerComponent;
-import lt.markmerkk.modules.SimpleWebRunnerModule;
+import lt.markmerkk.components.DaggerWebRunnerComponent;
+import lt.markmerkk.components.WebRunnerComponent;
+import lt.markmerkk.modules.WebRunnerModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,8 +18,8 @@ public class Main {
         Logger logger = LoggerFactory.getLogger(Main.class);
         logger.info("Starting app");
 
-        SimpleWebRunnerComponent component = DaggerSimpleWebRunnerComponent.builder()
-                .simpleWebRunnerModule(new SimpleWebRunnerModule(new PageAruodas()))
+        WebRunnerComponent component = DaggerWebRunnerComponent.builder()
+                .webRunnerModule(new WebRunnerModule(new PageAruodas()))
                 .build();
         component.runner().run();
 
