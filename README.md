@@ -1,6 +1,4 @@
-# info_bot
-
-## Under construction!
+# info_bot (Under construction)
 
 ### Purpose
 Simple java app that pulls all the new info from advertisemenet sites.
